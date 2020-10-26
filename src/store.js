@@ -34,4 +34,37 @@ const tvShows = [
   }
 ];
 
-export default tvShows;
+const profiles = [
+  {
+    id: 1,
+    firstName: "Mary",
+    lastName: "Smith",
+    age: 35,
+  },
+  {
+    id: 2,
+    firstName: "James",
+    lastName: "Brouillard",
+    age: 39,
+  },
+  {
+    id: 3,
+    firstName: "Isabelle",
+    lastName: "Reyes",
+    age: 24,
+  },
+  {
+    id: 4,
+    firstName: "Cory",
+    lastName: "Brouillard",
+    age: 57,
+  },
+  {
+    id: 5,
+    firstName: "Vilda",
+    lastName: "Svenson",
+    age: 21,
+  }
+]
+
+export {tvShows, profiles};
