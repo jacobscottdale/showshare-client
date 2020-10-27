@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import MainPage from './MainPage/MainPage';
 import FindShow from './FindShow/FindShow';
 import LogIn from './LogIn/LogIn';
@@ -38,4 +38,4 @@ class App extends Component {
 
 }
 
-export default App;
+export default withRouter(App);

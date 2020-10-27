@@ -40,30 +40,40 @@ const profiles = [
     firstName: "Mary",
     lastName: "Smith",
     age: 35,
+    watched: [ 1, 3 ],
+    toWatch: [ 2 ]
   },
   {
     id: 2,
     firstName: "James",
     lastName: "Brouillard",
     age: 39,
+    watched: [ 3 ],
+    toWatch: [ 1, 2 ]
   },
   {
     id: 3,
     firstName: "Isabelle",
     lastName: "Reyes",
     age: 24,
+    watched: [ 2, 3 ],
+    toWatch: [ 1 ]
   },
   {
     id: 4,
     firstName: "Cory",
     lastName: "Brouillard",
     age: 57,
+    watched: [ 1, 2 ],
+    toWatch: [ 3 ]
   },
   {
     id: 5,
     firstName: "Vilda",
     lastName: "Svenson",
     age: 21,
+    watched: [ 1, 3 ],
+    toWatch: [ 2 ]
   }
 ]
 
