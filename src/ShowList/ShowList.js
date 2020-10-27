@@ -1,30 +1,35 @@
 import React from 'react';
-import ShowItem from '../ShowItem/ShowItem';
-import { tvShows } from '../store';
-
+import ShowItem from 'ShowItem/ShowItem';
+import { tvShows } from 'store';
 
 function ShowList(props) {
   const shows = tvShows.map(show => {
     for (let i = 0; i < props.shows.length; i++) {
       if (props.shows[i] === show.ids.trakt) {
         return (
-          <li>
+          <li key={i}>
             <ShowItem
-              title={show.title}
-              year={show.year}
-              key={i}
+              show={show}
             />
           </li>
         );
       }
     }
   });
-  
+
   return (
-    <ul>
-      {shows}
-    </ul>
+    <div className='TVShow_list'>
+      <ul>
+        {shows}
+      </ul>
+    </div>
+
+
   );
 }
 
 export default ShowList;
+
+// Line 6:34:  Expected to return a value at the end of arrow function  array-callback-return
+
+// props.shows is an array of trakt ids

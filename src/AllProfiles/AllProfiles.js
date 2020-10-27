@@ -1,5 +1,5 @@
 import React from 'react';
-import { profiles } from '../store';
+import { profiles } from 'store';
 
 function AllProfiles(props) {
   return (

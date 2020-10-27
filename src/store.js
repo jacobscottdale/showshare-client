@@ -4,7 +4,7 @@ const tvShows = [
     year: 1975,
     ids: {
       trakt: 1,
-      slug: "game-of-thrones",
+      slug: "arrested-development",
       tvdb: 121361,
       imdb: "tt0944947",
       tmdb: 1399
@@ -15,7 +15,7 @@ const tvShows = [
     year: 2050,
     ids: {
       trakt: 2,
-      slug: "game-of-thrones",
+      slug: "game-of-thrones-sequel",
       tvdb: 121361,
       imdb: "tt0944947",
       tmdb: 1399

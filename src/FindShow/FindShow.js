@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import SearchBar from '../SearchBar/SearchBar.js';
-import ShowList from '../ShowList/ShowList.js';
-import { tvShows } from '../store';
+import SearchBar from 'SearchBar/SearchBar.js';
+import ShowList from 'ShowList/ShowList.js';
+import { tvShows } from 'store';
 
 class FindShow extends Component {
   state = {
