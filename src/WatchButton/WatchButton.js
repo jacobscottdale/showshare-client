@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { profiles } from 'store';
 
 function WatchButton(props) {

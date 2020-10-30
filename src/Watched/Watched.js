@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import ShowList from 'ShowList/ShowList';
 import NavBar from 'NavBar/NavBar';
 import { profiles } from 'store';
