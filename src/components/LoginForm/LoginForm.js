@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class LogIn extends Component {
+class LoginForm extends Component {
   
   handleSubmit = e => {
     e.preventDefault()
+    fetch('http://localhost:8000/api/auth/login')
+      .then(response => response.json())
+      .then(data => console.log(data))
     this.props.history.push('/')
   }
 
@@ -25,4 +28,4 @@ class LogIn extends Component {
 
 }
 
-export default LogIn;
+export default LoginForm;

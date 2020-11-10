@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ShowList from 'ShowList/ShowList';
-import NavBar from 'NavBar/NavBar';
+import ShowList from 'components/ShowList/ShowList';
+import NavBar from 'components/NavBar/NavBar';
 import { profiles } from 'store';
 
 function MainPage(props) {
@@ -22,6 +22,5 @@ function MainPage(props) {
 
   );
 }
-
 
 export default MainPage;

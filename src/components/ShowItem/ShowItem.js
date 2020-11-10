@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import WatchButton from 'WatchButton/WatchButton';
+import WatchButton from 'components/WatchButton/WatchButton';
 import { profiles } from 'store';
 
 function ShowItem(props) {

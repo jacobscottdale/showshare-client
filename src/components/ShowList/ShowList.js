@@ -1,5 +1,5 @@
 import React from 'react';
-import ShowItem from 'ShowItem/ShowItem';
+import ShowItem from 'components/ShowItem/ShowItem';
 import { tvShows } from 'store';
 
 function ShowList(props) {

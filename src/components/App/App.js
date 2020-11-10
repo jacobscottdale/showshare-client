@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
-import MainPage from 'MainPage/MainPage';
-import FindShow from 'FindShow/FindShow';
-import LogIn from 'LogIn/LogIn';
-import SignUp from 'SignUp/SignUp';
-import AllProfiles from 'AllProfiles/AllProfiles';
-import ShowPage from 'ShowPage/ShowPage';
-import Watched from 'Watched/Watched';
-import Watchlist from 'Watchlist/Watchlist';
-import 'App.css';
+import MainPage from 'routes/MainPage/MainPage';
+import FindShow from 'components/FindShow/FindShow';
+import LoginPage from 'routes/LoginPage/LoginPage';
+import RegistrationPage from 'routes/RegistrationPage/RegistrationPage';
+import AllProfiles from 'components/AllProfiles/AllProfiles';
+import ShowPage from 'routes/ShowPage/ShowPage';
+import Watched from 'components/Watched/Watched';
+import Watchlist from 'components/Watchlist/Watchlist';
+import 'components/App/App.css';
 
 
 class App extends Component {
@@ -18,11 +18,11 @@ class App extends Component {
     return (
       <main className='App'>
         <Route
-          exact path='/log-in'
-          component={LogIn} />
+          exact path='/login'
+          component={LoginPage} />
         <Route
           exact path='/sign-up'
-          component={SignUp} />
+          component={RegistrationPage} />
         <Route
           exact path='/find-show'
           component={FindShow}

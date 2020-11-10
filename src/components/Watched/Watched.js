@@ -1,6 +1,6 @@
 import React from 'react';
-import ShowList from 'ShowList/ShowList';
-import NavBar from 'NavBar/NavBar';
+import ShowList from 'components/ShowList/ShowList';
+import NavBar from 'components/NavBar/NavBar';
 import { profiles } from 'store';
 
 function Watched(props) {

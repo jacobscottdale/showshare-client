@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SearchBar from 'SearchBar/SearchBar.js';
-import ShowList from 'ShowList/ShowList.js';
+import SearchBar from 'components/SearchBar/SearchBar.js';
+import ShowList from 'components/ShowList/ShowList.js';
 import { tvShows } from 'store';
 
 class FindShow extends Component {

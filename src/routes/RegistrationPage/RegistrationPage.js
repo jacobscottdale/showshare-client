@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class SignUp extends Component {
+class RegistrationPage extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.props.history.push('/');
@@ -28,4 +28,4 @@ class SignUp extends Component {
 
 }
 
-export default SignUp;
+export default RegistrationPage;
