@@ -21,7 +21,7 @@ class RegistrationPage extends Component {
           <input id='password' name='password' type='text' /><br />
           <button type='submit'>Log In</button>
         </form>
-        <p>Or log in to <Link to='/log-in'>An Existing Account</Link></p>
+        <p>Or log in to <Link to='/login'>An Existing Account</Link></p>
       </>
     );
   }

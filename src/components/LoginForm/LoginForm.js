@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
+import AuthApiService from 'services/auth-api-service'
 import { Link } from 'react-router-dom';
 
 class LoginForm extends Component {
-  
+  static defaultProps = {
+    onLoginSuccess: () => {}
+  }
+
   handleSubmit = e => {
     e.preventDefault()
+    const { username, password } = e.target
+
+    AuthApiService.postLogin({
+
+    })
+
     fetch('http://localhost:8000/api/auth/login')
       .then(response => response.json())
       .then(data => console.log(data))
@@ -14,7 +24,7 @@ class LoginForm extends Component {
   render() {
     return (
       <>
-        <form id='LogIn-Form' onSubmit={this.handleSubmit}>
+        <form className='LogInForm' onSubmit={this.handleSubmit}>
           <label htmlFor='username'>Username:</label>
           <input id='username' name='username' type='text' /><br />
           <label htmlFor='password'>Password:</label>
