@@ -37,7 +37,7 @@ class LoginForm extends Component {
           <input id='password' name='password' type='text' /><br />
           <button type='submit'>Log In</button>
         </form>
-        <p>Or make a <Link to='/sign-up' >New Account</Link></p>
+        <p>Or make a <Link to='/register' >New Account</Link></p>
       </>
     );
   }

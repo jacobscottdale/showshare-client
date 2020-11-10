@@ -24,7 +24,7 @@ class App extends Component {
             exact path={'/login'}
             component={LoginPage} />
           <Route
-            exact path={'/sign-up'}
+            exact path={'/register'}
             component={RegistrationPage} />
           <Route
             exact path={'/find-show'}
