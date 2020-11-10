@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, withRouter } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import MainPage from 'routes/MainPage/MainPage';
 import FindShow from 'components/FindShow/FindShow';
 import LoginPage from 'routes/LoginPage/LoginPage';
@@ -12,49 +12,48 @@ import 'components/App/App.css';
 
 
 class App extends Component {
-
-
   render() {
     return (
       <main className='App'>
-        <Route
-          exact path='/login'
-          component={LoginPage} />
-        <Route
-          exact path='/sign-up'
-          component={RegistrationPage} />
-        <Route
-          exact path='/find-show'
-          component={FindShow}
-        />
-        <Route
-          exact path='/'
-          component={MainPage}
-        />
-        <Route
-          exact path='/all-profiles'
-          component={AllProfiles}
-        />
-        <Route
-          exact path='/shows/:showSlug'
-          render={props => (
-            <ShowPage
-              {...props}
-            />
-          )}
-        />
-        <Route
-          exact path='/watchlist'
-          component={Watchlist}
-        />
-        <Route
-          exact path='/watched'
-          component={Watched}
-        />
+        <Switch>
+          <Route
+            exact path={'/'}
+            component={MainPage}
+          />
+          <Route
+            exact path={'/login'}
+            component={LoginPage} />
+          <Route
+            exact path={'/sign-up'}
+            component={RegistrationPage} />
+          <Route
+            exact path={'/find-show'}
+            component={FindShow}
+          />
+          <Route
+            exact path={'/all-profiles'}
+            component={AllProfiles}
+          />
+          <Route
+            exact path={'/shows/:showSlug'}
+            render={props => (
+              <ShowPage
+                {...props}
+              />
+            )}
+          />
+          <Route
+            exact path='/watchlist'
+            component={Watchlist}
+          />
+          <Route
+            exact path='/watched'
+            component={Watched}
+          />
+        </Switch>
       </main>
     );
   }
-
 }
 
-export default withRouter(App);
+export default App;

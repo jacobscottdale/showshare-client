@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AuthApiService from 'services/auth-api-service'
+import TokenService from 'services/token-service'
 import { Link } from 'react-router-dom';
 
 class LoginForm extends Component {
@@ -12,13 +13,18 @@ class LoginForm extends Component {
     const { username, password } = e.target
 
     AuthApiService.postLogin({
-
+      username: username.value,
+      password: password.value,
     })
-
-    fetch('http://localhost:8000/api/auth/login')
-      .then(response => response.json())
-      .then(data => console.log(data))
-    this.props.history.push('/')
+      .then(res => {
+        username.value = ''
+        password.value = ''
+        TokenService.saveAuthToken(res.authToken)
+        this.props.onLoginSuccess()
+      })
+      .catch(res => {
+        console.log(res.error)
+      })
   }
 
   render() {
