@@ -9,6 +9,8 @@ import ShowPage from 'routes/ShowPage/ShowPage';
 import Watched from 'components/Watched/Watched';
 import Watchlist from 'components/Watchlist/Watchlist';
 import 'components/App/App.css';
+import PrivateRoute from 'components/Utils/PrivateRoute'
+import PublicOnlyRoute from 'components/Utils/PublicOnlyRoute'
 
 
 class App extends Component {
@@ -33,6 +35,14 @@ class App extends Component {
           <Route
             exact path={'/all-profiles'}
             component={AllProfiles}
+          />
+          <PrivateRoute 
+            path={'/private-route'}
+            component={MainPage}
+          />
+          <PublicOnlyRoute
+            path={'/public-route'}
+            component={LoginPage}
           />
           <Route
             exact path={'/shows/:showSlug'}
