@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import AuthApiService from 'services/auth-api-service';
+import TokenService from 'services/token-service';
 
 class RegistrationForm extends Component {
   static defaultProps = {
@@ -17,11 +18,12 @@ class RegistrationForm extends Component {
       username: username.value,
       password: password.value
     })
-      .then(user => {
+      .then(res => {
         first_name.value = ''
         last_name.value = ''
         username.value = ''
         password.value = ''
+        TokenService.saveAuthToken(res.authToken)
         this.props.onRegistrationSuccess()
       })
   };

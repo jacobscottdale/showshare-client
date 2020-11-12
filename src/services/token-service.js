@@ -14,6 +14,7 @@ const TokenService = {
     return !!TokenService.getAuthToken();
   },
   hasValidAuthToken() {
+    // Need to figure out how to resolve the promise in PublicOnly/Private Routes
     return fetch(`${config.API_ENDPOINT}/auth/verify-token`, {
       method: 'GET',
       headers: {
@@ -21,9 +22,11 @@ const TokenService = {
         'Authorization': `bearer ${TokenService.getAuthToken()}`
       }
     })
-      .then(res => (!res.ok)
+      .then(res => {
+        return (!res.ok)
         ? res.json().then(e => Promise.reject(e))
         : res.json()
+      }
       )
   }
 };
