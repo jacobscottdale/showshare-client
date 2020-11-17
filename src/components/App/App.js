@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import MainPage from 'routes/MainPage/MainPage';
-import FindShow from 'components/FindShow/FindShow';
+import SearchPage from 'routes/SearchPage/SearchPage';
 import LoginPage from 'routes/LoginPage/LoginPage';
 import RegistrationPage from 'routes/RegistrationPage/RegistrationPage';
 import AllProfiles from 'components/AllProfiles/AllProfiles';
@@ -30,7 +30,7 @@ class App extends Component {
             component={RegistrationPage} />
           <Route
             exact path={'/find-show'}
-            component={FindShow}
+            component={SearchPage}
           />
           <Route
             exact path={'/all-profiles'}
