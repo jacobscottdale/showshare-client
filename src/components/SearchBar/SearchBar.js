@@ -7,6 +7,7 @@ class SearchBar extends Component {
     e.preventDefault();
     console.log(e.target['show-search'].value)
     this.props.handleSearch(e.target['show-search'].value);
+    e.target['show-search'].value = ''
   };
 
   render() {

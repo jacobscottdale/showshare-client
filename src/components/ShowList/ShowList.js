@@ -1,30 +1,22 @@
 import React from 'react';
 import ShowItem from 'components/ShowItem/ShowItem';
-import { tvShows } from 'store';
 
 function ShowList(props) {
-  const shows = tvShows.map(show => {
-    for (let i = 0; i < props.shows.length; i++) {
-      if (props.shows[i] === show.ids.trakt) {
-        return (
-          <li key={i}>
-            <ShowItem
-              show={show}
-            />
-          </li>
-        );
-      }
-    }
-  });
+  const shows = props.shows.map(show =>
+    <li key={show.show.ids.trakt}>
+      <ShowItem show={show} />
+    </li>
+  );
 
   return (
     <div className='TVShow_list'>
+      {(props.searchTerm)
+        ? <h3>Showing results for '{props.searchTerm}'</h3>
+        : null}
       <ul>
         {shows}
       </ul>
     </div>
-
-
   );
 }
 
