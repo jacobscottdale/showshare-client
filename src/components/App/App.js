@@ -29,7 +29,7 @@ class App extends Component {
             exact path={'/register'}
             component={RegistrationPage} />
           <Route
-            exact path={'/find-show'}
+            exact path={'/search'}
             component={SearchPage}
           />
           <Route
