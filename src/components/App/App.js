@@ -5,7 +5,7 @@ import SearchPage from 'routes/SearchPage/SearchPage';
 import LoginPage from 'routes/LoginPage/LoginPage';
 import RegistrationPage from 'routes/RegistrationPage/RegistrationPage';
 import AllProfiles from 'components/AllProfiles/AllProfiles';
-import ShowPage from 'routes/ShowPage/ShowPage';
+import UserShowPage from 'routes/UserShowPage/UserShowPage';
 import Watched from 'components/Watched/Watched';
 import Watchlist from 'components/Watchlist/Watchlist';
 import 'components/App/App.css';
@@ -45,9 +45,9 @@ class App extends Component {
             component={LoginPage}
           />
           <Route
-            exact path={'/shows/:showSlug'}
+            exact path={'/user/list'}
             render={props => (
-              <ShowPage
+              <UserShowPage
                 {...props}
               />
             )}

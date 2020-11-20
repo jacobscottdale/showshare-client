@@ -21,7 +21,3 @@ function ShowList(props) {
 }
 
 export default ShowList;
-
-// Line 6:34:  Expected to return a value at the end of arrow function  array-callback-return
-
-// props.shows is an array of trakt ids
