@@ -1,21 +1,17 @@
 import React from 'react';
-import { profiles } from 'store';
+import ShowApiService from 'services/show-api-service'
 
 function WatchButton(props) {
 
-  const user = profiles.find(profile => profile.id === 1);
-  const button = user.watched.includes(props.showId)
-    ? (
-      <div className='show_watch_button'>
-        <button id='remove-watched'>Remove from Watched</button>
-      </div>
-    )
-    : (
-      <div className='show_watch_button'>
-        <button id='add-watched'>Mark Watched</button>
-        <button id='add-watchlist'>Add to WatchList</button>
-      </div>
-    );
+  const button = (props.watch_status === 'watched')
+    ? <button
+      onClick={() => ShowApiService.updateWatchStatus(props.trakt_id, 'want', props.updateState)}>
+      Mark Unwatched
+      </button>
+    : <button
+      onClick={() => ShowApiService.updateWatchStatus(props.trakt_id, 'watched', props.updateState)}>
+      Mark Watched
+      </button>;
 
   return button;
 }

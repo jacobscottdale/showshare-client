@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import UserShowList from 'components/UserShowList/UserShowList';
 import ShowApiService from 'services/show-api-service';
 
@@ -25,9 +26,11 @@ class UserShowPage extends Component {
 
 
   render() {
+    console.log('render')
     return (
       <section className='UserShowPage'>
         <UserShowList shows={this.state.userShows} updateState={this.handleUserShowsState}/>
+        <Link to={'/search'}>Add more shows</Link>
       </section>
     );
   }

@@ -4,15 +4,28 @@ const TokenService = {
   saveAuthToken(token) {
     window.localStorage.setItem(config.TOKEN_KEY, token);
   },
+
   getAuthToken() {
     return window.localStorage.getItem(config.TOKEN_KEY);
   },
+
   clearAuthToken() {
     window.localStorage.removeItem(config.TOKEN_KEY);
   },
+
   hasAuthToken() {
     return !!TokenService.getAuthToken();
   },
+
+  tokenAccepted(responseStatus) {
+    if (responseStatus === 401) {
+      this.clearAuthToken();
+      return false;
+    } else {
+      return true;
+    }
+  },
+
   hasValidAuthToken() {
     // Need to figure out how to resolve the promise in PublicOnly/Private Routes
     return fetch(`${config.API_ENDPOINT}/auth/verify-token`, {
@@ -23,10 +36,9 @@ const TokenService = {
       }
     })
       .then(res => {
-        return (!res.ok)
-        ? res.json().then(e => Promise.reject(e))
-        : res.json()
-      })
+        console.log(res.ok);
+        return res.ok;
+      });
   },
 };
 

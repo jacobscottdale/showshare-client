@@ -4,12 +4,11 @@ import TokenService from 'services/token-service';
 
 export default function PrivateRoute({ component, ...props }) {
   const Component = component;
-  console.log('hi')
   return (
     <Route
       {...props}
       render={componentProps => (
-        TokenService.hasValidAuthToken()
+        TokenService.hasAuthToken()
           ? <Component {...componentProps} />
           : <Redirect
             to={{

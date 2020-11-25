@@ -9,6 +9,8 @@ class SearchPage extends Component {
     searchTerm: '',
   };
 
+
+
   handleSearch = searchTerm => {
     ShowApiService.searchShows(searchTerm)
     .then(searchResults => this.setState({ searchResults, searchTerm }))
