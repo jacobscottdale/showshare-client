@@ -41,7 +41,8 @@ const ShowApiService = {
       }
     })
       .then(res => {
-        TokenService.tokenAccepted(res.status)
+        if (!TokenService.tokenAccepted(res.status))
+          return false
         if (!res.ok)
           throw new Error('Fetch user shows unsuccessful');
         return res.json();

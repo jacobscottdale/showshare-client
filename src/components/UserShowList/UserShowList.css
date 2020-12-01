@@ -1,0 +1,7 @@
+.TVShow_list {
+  display: flex;
+}
+
+.TVShow_list > div {
+  flex: 1;
+}

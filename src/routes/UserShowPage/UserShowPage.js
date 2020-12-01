@@ -1,37 +1,52 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import UserShowList from 'components/UserShowList/UserShowList';
+import NavBar from 'components/NavBar/NavBar';
 import ShowApiService from 'services/show-api-service';
+//import TokenService from 'services/token-service';
+import SearchBar from 'components/SearchBar/SearchBar';
+import UserContext from 'UserContext';
 
 class UserShowPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      userShows: [],
-    };
-  }
+  static contextType = UserContext;
 
-  handleUserShowsState = (user_id) => {
-    ShowApiService.getUserShows(user_id)
+  handleUserShowsState = () => {
+    ShowApiService.getUserShows(this.context.user.user_id)
       .then(userShows => {
-        this.setState({
-          userShows
-        })
-      })
-  }
+        if (userShows) {
+          this.context.storeUserShows(userShows)
+        } else {
+          this.props.history.push('/login');
+        }
+      });
+  };
+
+  handleSearch = searchTerm => {
+    ShowApiService.searchShows(searchTerm)
+      .then(searchResults => {
+        this.props.history.push({
+          pathname: '/search',
+          searchResults: searchResults,
+          searchTerm: searchTerm
+        });
+      });
+  };
 
   componentDidMount() {
-    this.handleUserShowsState(1)
+    this.handleUserShowsState();
   }
 
 
   render() {
-    console.log('render')
     return (
-      <section className='UserShowPage'>
-        <UserShowList shows={this.state.userShows} updateState={this.handleUserShowsState}/>
-        <Link to={'/search'}>Add more shows</Link>
-      </section>
+      <>
+        <NavBar></NavBar>
+        <SearchBar handleSearch={this.handleSearch}></SearchBar>
+        <section className='UserShowPage'>
+          <UserShowList shows={this.context.userShows} updateState={this.handleUserShowsState} />
+          <Link to={'/search'}>Add more shows</Link>
+        </section>
+      </>
     );
   }
 }

@@ -1,4 +1,5 @@
 import config from 'config';
+import jwt from 'jsonwebtoken';
 
 const TokenService = {
   saveAuthToken(token) {
@@ -19,6 +20,7 @@ const TokenService = {
 
   tokenAccepted(responseStatus) {
     if (responseStatus === 401) {
+      console.log('response is 401');
       this.clearAuthToken();
       return false;
     } else {
@@ -36,10 +38,24 @@ const TokenService = {
       }
     })
       .then(res => {
-        console.log(res.ok);
         return res.ok;
       });
   },
+
+  userOnToken() {
+    const token = this.getAuthToken();
+    if (!token) {
+      return false
+    } else {
+      const user = {
+        user_id: jwt.decode(token).user_id,
+        username: jwt.decode(token).sub
+      };
+      return user;
+    }
+      
+    
+  }
 };
 
 export default TokenService;

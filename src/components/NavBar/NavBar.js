@@ -7,7 +7,7 @@ function NavBar(props) {
       <h1>showshare</h1>
       <nav>
         <ul>
-        
+          <li>Search</li>
         </ul>
       </nav>
     </header>

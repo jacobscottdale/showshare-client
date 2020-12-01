@@ -31,10 +31,10 @@ class LoginForm extends Component {
     return (
       <>
         <form className='LogInForm' onSubmit={this.handleSubmit}>
-          <label htmlFor='username'>Username:</label>
-          <input id='username' name='username' type='text' /><br />
+          <label htmlFor='username' >Username:</label>
+          <input id='username' name='username' type='text' autoComplete='username'/><br />
           <label htmlFor='password'>Password:</label>
-          <input id='password' name='password' type='text' /><br />
+          <input id='password' name='password' type='password' autoComplete='password'/><br />
           <button type='submit'>Log In</button>
         </form>
         <p>Or make a <Link to='/register' >New Account</Link></p>

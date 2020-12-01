@@ -9,7 +9,7 @@ function ShowList(props) {
   );
 
   return (
-    <div className='TVShow_list'>
+    <div className='TVShow_results'>
       {(props.searchTerm)
         ? <h3>Showing results for '{props.searchTerm}'</h3>
         : null}

@@ -1,5 +1,6 @@
 import React from 'react';
 import UserShowItem from 'components/UserShowItem/UserShowItem';
+import 'components/UserShowList/UserShowList.css'
 
 function UserShowList(props) {
   const watchedShows = (props.shows)
@@ -7,7 +8,7 @@ function UserShowList(props) {
       (show.watch_status === 'watched')
         ? (
           <li key={show.trakt_id}>
-            <UserShowItem show={show} updateState={(user_id) => props.updateState(user_id)} />
+            <UserShowItem show={show} updateState={props.updateState} />
           </li>)
         : null
 
@@ -19,7 +20,7 @@ function UserShowList(props) {
       (show.watch_status === 'want')
         ? (
           <li key={show.trakt_id}>
-            <UserShowItem show={show} updateState={(user_id) => props.updateState(user_id)} />
+            <UserShowItem show={show} updateState={props.updateState} />
           </li>)
         : null
     )

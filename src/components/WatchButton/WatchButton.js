@@ -1,5 +1,5 @@
 import React from 'react';
-import ShowApiService from 'services/show-api-service'
+import ShowApiService from 'services/show-api-service';
 
 function WatchButton(props) {
 

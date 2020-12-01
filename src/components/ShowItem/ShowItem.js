@@ -7,6 +7,7 @@ function ShowItem(props) {
       <Link to={`/show/${props.show.show.ids.trakt}`}>
         {props.show.show.title} ({props.show.show.year})
       </Link>
+      <button></button>
     </div>
   );
 }
