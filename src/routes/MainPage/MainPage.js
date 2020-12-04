@@ -6,7 +6,7 @@ import NavBar from 'components/NavBar/NavBar';
 function MainPage(props) {
   return (
     <>
-      <NavBar/>
+      <NavBar history={props.history}/>
       <p>Welcome to showshare!</p>
     </>
 

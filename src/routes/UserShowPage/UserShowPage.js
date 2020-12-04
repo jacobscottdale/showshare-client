@@ -41,7 +41,7 @@ class UserShowPage extends Component {
         <NavBar history={this.props.history} />
         <SearchBar handleSearch={this.handleSearch}></SearchBar>
         <section className='UserShowPage'>
-          <UserShowList shows={this.context.userShows} updateState={this.updateUserShowsState} />
+          <UserShowList updateState={this.updateUserShowsState} />
         </section>
       </>
     );

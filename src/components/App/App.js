@@ -9,7 +9,7 @@ import PrivateRoute from 'components/Utils/PrivateRoute';
 import PublicOnlyRoute from 'components/Utils/PublicOnlyRoute';
 import TokenService from 'services/token-service';
 import UserContext from 'UserContext';
-import ShowApiService from 'services/show-api-service'
+import ShowApiService from 'services/show-api-service';
 import MainPage from 'routes/MainPage/MainPage';
 
 class App extends Component {
@@ -25,16 +25,17 @@ class App extends Component {
   };
 
   redirectToLogin = () => {
-    const { history } = this.props
+    const { history } = this.props;
     if (history)
       history.push('login');
-  }
+  };
 
   componentDidMount() {
     ShowApiService.getUserShows()
       .then(userShows => {
-        this.storeUserShows(userShows)
-      })
+        if (userShows)
+          this.storeUserShows(userShows);
+      });
   }
 
   render() {
