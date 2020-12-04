@@ -1,0 +1,32 @@
+.watchbutton {
+  border: 2px solid black;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  margin: 3px 0;
+  padding: 5px 0;
+}
+
+.mark_watched {
+  border-color: #4C566A;
+  color: white;
+  background-color: #4C566A;
+}
+
+.mark_unwatched {
+  border-color: #81A1C1;
+  color: white;
+  background-color: #81A1C1;
+}
+
+.remove_watchlist {
+  border-color: #D8DEE9;
+  color: white;
+  background-color: #D8DEE9;
+}
+
+.add_watchlist {
+  border-color: #5E81AC;
+  color:white;
+  background-color:#5E81AC;
+}

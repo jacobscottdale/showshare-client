@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import UserShowList from 'components/UserShowList/UserShowList';
 import NavBar from 'components/NavBar/NavBar';
 import ShowApiService from 'services/show-api-service';
-//import TokenService from 'services/token-service';
 import SearchBar from 'components/SearchBar/SearchBar';
 import UserContext from 'UserContext';
 
 class UserShowPage extends Component {
   static contextType = UserContext;
 
-  handleUserShowsState = () => {
-    ShowApiService.getUserShows(this.context.user.user_id)
+  updateUserShowsState = () => {
+    ShowApiService.getUserShows()
       .then(userShows => {
         if (userShows) {
           this.context.storeUserShows(userShows)
         } else {
-          this.props.history.push('/login');
+          this.context.redirectToLogin();
         }
       });
   };
@@ -33,18 +31,17 @@ class UserShowPage extends Component {
   };
 
   componentDidMount() {
-    this.handleUserShowsState();
+    this.updateUserShowsState();
   }
 
 
   render() {
     return (
       <>
-        <NavBar></NavBar>
+        <NavBar history={this.props.history} />
         <SearchBar handleSearch={this.handleSearch}></SearchBar>
         <section className='UserShowPage'>
-          <UserShowList shows={this.context.userShows} updateState={this.handleUserShowsState} />
-          <Link to={'/search'}>Add more shows</Link>
+          <UserShowList shows={this.context.userShows} updateState={this.updateUserShowsState} />
         </section>
       </>
     );

@@ -1,15 +1,45 @@
 .NavBar {
+  display: flex;
+  justify-content: space-between;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   text-align: left;
-  background-color: black;
-  color: white;
+  background-color: #2E3440;
+  color: #ECEFF4;
   height: 80px;
   margin-bottom: 10px;
 }
 
+.NavBar a {
+  color:#ECEFF4;
+}
+
+.NavBar ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.NavBar li {
+  margin-top: 12px;
+  margin-right: 25px;
+}
+
+li {
+  list-style: none;
+}
+
 h1 {
-  margin-left: 10px
+  margin-left: 25px
+}
+
+.log_button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #ECEFF4;
+  cursor: pointer;
+  font-family: arial, sans-serif;
+  font-size: 16px;
 }

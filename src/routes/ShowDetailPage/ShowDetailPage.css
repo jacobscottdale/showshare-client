@@ -1,0 +1,19 @@
+.Show_Detail_Page {
+  display: flex;
+}
+
+.Show_Detail {
+  margin: 0 30px;
+}
+
+.title_container {
+  display: flex;
+}
+
+.watch_show_buttons .watchbutton {
+  width: 185px;
+}
+
+.watch_show_buttons {
+  width: 185px;
+}

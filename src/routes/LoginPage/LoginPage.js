@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import LoginForm from 'components/LoginForm/LoginForm';
+import NavBar from 'components/NavBar/NavBar';
 
 export default class LoginPage extends Component {
-
   static defaultProps = {
     location: {},
     history: {
@@ -18,12 +18,15 @@ export default class LoginPage extends Component {
 
   render() {
     return (
-      <section className='LoginPage'>
-        <h2>Login</h2>
-        <LoginForm
-          onLoginSuccess={this.handleLoginSuccess}
-        />
-      </section>
+      <>
+        <NavBar history={this.props.history} />
+        <section className='LoginPage'>
+          <h2>Login</h2>
+          <LoginForm
+            onLoginSuccess={this.handleLoginSuccess}
+          />
+        </section>
+      </>
     );
   }
 

@@ -1,43 +1,42 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import UserShowItem from 'components/UserShowItem/UserShowItem';
-import 'components/UserShowList/UserShowList.css'
+import 'components/UserShowList/UserShowList.css';
 
 function UserShowList(props) {
-  const watchedShows = (props.shows)
-    ? props.shows.map(show =>
-      (show.watch_status === 'watched')
-        ? (
-          <li key={show.trakt_id}>
-            <UserShowItem show={show} updateState={props.updateState} />
-          </li>)
-        : null
+  const watchedShows = props.shows.map(show =>
+    (show.watch_status === 'watched')
+      ? (
+        <li key={show.trakt_id}>
+          <UserShowItem show={show} updateState={props.updateState} />
+        </li>)
+      : null
+  ).filter(show => show);
 
-    )
-    : null;
 
-  const unwatchedShows = (props.shows)
-    ? props.shows.map(show =>
-      (show.watch_status === 'want')
-        ? (
-          <li key={show.trakt_id}>
-            <UserShowItem show={show} updateState={props.updateState} />
-          </li>)
-        : null
-    )
-    : null;
+  const unwatchedShows = props.shows.map(show =>
+    (show.watch_status === 'want')
+      ? (
+        <li key={show.trakt_id}>
+          <UserShowItem show={show} updateState={props.updateState} />
+        </li>)
+      : null
+  ).filter(show => show);
 
   return (
     <div className='TVShow_list'>
-      <div className='TVShow_list_watched'>
-        <h3>Watched Shows</h3>
+
+      <div className='TVShow_list_unwatched'>
+        <h2>Unwatched Shows</h2>
         <ul>
-          {watchedShows}
+          {unwatchedShows[0]
+            ? unwatchedShows : (<Link to={'/search'}>Add more shows</Link>)}
         </ul>
       </div>
-      <div className='TVShow_list_unwatched'>
-        <h3>Unwatched Shows</h3>
+      <div className='TVShow_list_watched'>
+        <h2>Watched Shows</h2>
         <ul>
-          {unwatchedShows}
+          {watchedShows[0] ? watchedShows : (<Link to={'/search'}>Add more shows</Link>)}
         </ul>
       </div>
     </div>

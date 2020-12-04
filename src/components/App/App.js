@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import SearchPage from 'routes/SearchPage/SearchPage';
 import LoginPage from 'routes/LoginPage/LoginPage';
 import RegistrationPage from 'routes/RegistrationPage/RegistrationPage';
@@ -9,6 +9,8 @@ import PrivateRoute from 'components/Utils/PrivateRoute';
 import PublicOnlyRoute from 'components/Utils/PublicOnlyRoute';
 import TokenService from 'services/token-service';
 import UserContext from 'UserContext';
+import ShowApiService from 'services/show-api-service'
+import MainPage from 'routes/MainPage/MainPage';
 
 class App extends Component {
   state = {
@@ -22,11 +24,25 @@ class App extends Component {
     });
   };
 
+  redirectToLogin = () => {
+    const { history } = this.props
+    if (history)
+      history.push('login');
+  }
+
+  componentDidMount() {
+    ShowApiService.getUserShows()
+      .then(userShows => {
+        this.storeUserShows(userShows)
+      })
+  }
+
   render() {
     const contextValue = {
       user: this.state.user,
       userShows: this.state.userShows,
       storeUserShows: this.storeUserShows,
+      redirectToLogin: this.redirectToLogin,
     };
 
     return (
@@ -34,19 +50,14 @@ class App extends Component {
         <Switch>
           <UserContext.Provider value={contextValue}>
 
-            <PrivateRoute
+            <PublicOnlyRoute
               exact path={'/'}
-              component={UserShowPage}
+              component={MainPage}
             />
 
             <Route
               exact path={'/show/:trakt_id'}
               component={ShowDetailPage}
-            />
-
-            <Route
-              exact path={'/login'}
-              component={LoginPage}
             />
 
             <Route
@@ -60,12 +71,12 @@ class App extends Component {
             />
 
             <PublicOnlyRoute
-              path={'/public-route'}
+              path={'/login'}
               component={LoginPage}
             />
 
             <PrivateRoute
-              exact path={'/user/list'}
+              exact path={'/watchlist'}
               component={UserShowPage}
             />
 
@@ -76,4 +87,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

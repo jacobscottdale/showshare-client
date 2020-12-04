@@ -1,0 +1,33 @@
+.search_show_buttons {
+
+  justify-self: right;
+}
+
+.search_show_buttons .watchbutton {
+  width: 120px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 5px;
+}
+
+.TVShow_results .show_title {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  align-self: center;
+}
+
+.show_title a {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.TVShow_results .TVShow_item {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin: 10px auto;
+  padding: 5px 10px;
+  background-color: white;
+  max-width: 600px;
+  border: 2px solid #4C566A;
+  border-radius: 5px;
+}

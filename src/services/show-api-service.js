@@ -24,12 +24,12 @@ const ShowApiService = {
         'content-type': 'application/json'
       }
     })
-    .then(res => {
-      if (!res.ok)
-        throw new Error('Unable to retrieve show details')
-        return res.json()
-    })
-    .catch(err => console.log(err))
+      .then(res => {
+        if (!res.ok)
+          throw new Error('Unable to retrieve show details');
+        return res.json();
+      })
+      .catch(err => console.log(err));
   },
 
   getUserShows() {
@@ -42,7 +42,7 @@ const ShowApiService = {
     })
       .then(res => {
         if (!TokenService.tokenAccepted(res.status))
-          return false
+          return false;
         if (!res.ok)
           throw new Error('Fetch user shows unsuccessful');
         return res.json();
@@ -65,7 +65,26 @@ const ShowApiService = {
       .then(res => {
         if (!res.ok)
           throw new Error('Adding show to list failed');
-        return res.json().then(response => updateState(response.user_id));
+        return res.json().then(response => updateState(TokenService.userOnToken()));
+      })
+      .catch(err => console.log(err));
+  },
+
+  removeShowFromList(trakt_id, updateState) {
+    return fetch(`${config.API_ENDPOINT}/lists/`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `bearer ${TokenService.getAuthToken()}`
+      },
+      body: JSON.stringify({
+        'trakt_id': trakt_id
+      })
+    })
+      .then(res => {
+        if (!res.ok)
+          throw new Error('Adding show to list failed');
+        return updateState(TokenService.userOnToken());
       })
       .catch(err => console.log(err));
   },
@@ -85,7 +104,7 @@ const ShowApiService = {
       .then(res => {
         if (!res.ok)
           throw new Error('Watch status update failed');
-        return res.json().then(response => updateState(response.user_id));
+        return res.json().then(response => updateState(TokenService.userOnToken()));
       })
       .catch(err => console.log(err));
   }

@@ -1,3 +1,21 @@
+html {
+  font-family: arial, sans-serif;
+  color: #2E3440;
+}
+
 body {
   margin-top: 90px;
+  padding: 10px 20px;
+}
+
+section a:visited {
+  color: #2E3440;
+}
+
+section a {
+  color: #2E3440
+}
+
+a {
+  text-decoration: none;
 }

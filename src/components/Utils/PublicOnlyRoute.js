@@ -11,7 +11,7 @@ export default function PublicOnlyRoute({ component, ...props }) {
         const hasToken = TokenService.hasAuthToken();
         
         return hasToken
-          ? <Redirect to={'/'} />
+          ? <Redirect to={'/watchlist'} />
           : <Component {...componentProps} />;
       }}
     />

@@ -1,41 +1,59 @@
 import React, { Component } from 'react';
-import AuthApiService from 'services/auth-api-service'
-import TokenService from 'services/token-service'
+import AuthApiService from 'services/auth-api-service';
+import TokenService from 'services/token-service';
 import { Link } from 'react-router-dom';
 
 class LoginForm extends Component {
   static defaultProps = {
-    onLoginSuccess: () => {}
-  }
+    onLoginSuccess: () => { }
+  };
 
   handleSubmit = e => {
-    e.preventDefault()
-    const { username, password } = e.target
+    e.preventDefault();
+    const { username, password } = e.target;
 
-    AuthApiService.postLogin({
+    if (username.value && password.value) {
+      AuthApiService.postLogin({
       username: username.value,
       password: password.value,
     })
       .then(res => {
-        username.value = ''
-        password.value = ''
-        TokenService.saveAuthToken(res.authToken)
-        this.props.onLoginSuccess()
+        username.value = '';
+        password.value = '';
+        TokenService.saveAuthToken(res.authToken);
+        this.props.onLoginSuccess();
       })
       .catch(res => {
-        console.log(res.error)
-      })
-  }
+        console.log(res.error);
+      });
+    } else if (!username.value && !password.value) {
+      console.log('username and password required')
+    } else if (!username.value) {
+      console.log('username required')
+    } else if (!password.value) {
+      console.log('password required')
+    }
+  };
 
   render() {
     return (
       <>
         <form className='LogInForm' onSubmit={this.handleSubmit}>
           <label htmlFor='username' >Username:</label>
-          <input id='username' name='username' type='text' autoComplete='username'/><br />
+          <input
+            id='username'
+            name='username'
+            type='text'
+            autoComplete='username' /><br />
           <label htmlFor='password'>Password:</label>
-          <input id='password' name='password' type='password' autoComplete='password'/><br />
-          <button type='submit'>Log In</button>
+          <input
+            id='password'
+            name='password'
+            type='password'
+            autoComplete='current-password' /><br />
+          <button type='submit'>
+            Log In
+            </button>
         </form>
         <p>Or make a <Link to='/register' >New Account</Link></p>
       </>

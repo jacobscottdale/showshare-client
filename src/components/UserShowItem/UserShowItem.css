@@ -1,0 +1,26 @@
+.UserShowPage .TVShow_item {
+  width: 185px;
+}
+
+.TVShow_item a {
+  color: #2E3440;
+}
+
+img.show_poster {
+  width: 185px;
+  height: 272px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.show_title {
+ font-size: 12px;
+}
+
+.show_buttons {
+  width: 185px;
+}
+
+.show_buttons .watchbutton {
+ width: 185px;
+}

@@ -1,21 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import WatchButton from 'components/WatchButton/WatchButton';
+import AddButton from 'components/AddButton/AddButton';
+import 'components/UserShowItem/UserShowItem.css';
 
 function UserShowItem(props) {
-  const { slug, title, year, watch_status, trakt_id } = props.show;
+  const { slug, title, year, watch_status, trakt_id, tmdb_image_path } = props.show;
+
+  const posterLink = `https://image.tmdb.org/t/p/w185${tmdb_image_path}`;
 
   return (
     <div className='TVShow_item'>
-      <Link to={`/show/${trakt_id}`}>
-        {title} ({year})
+      <div className='poster_container'>
+        <img className='show_poster' src={posterLink} alt={slug + '-poster'} />
+      </div>
+      <div className='show_title'>
+        <Link to={`/show/${trakt_id}`}>
+          {title} ({year})
       </Link>
-      <WatchButton
-        watch_status={watch_status}
-        trakt_id={trakt_id}
-        updateState={props.updateState}
-      />
-      <button>Remove from List</button>
+      </div><br/>
+      <div className='show_buttons'>
+        <AddButton
+          watch_status={watch_status}
+          trakt_id={trakt_id}
+          updateState={props.updateState}
+        />
+      </div>
     </div>
   );
 }
