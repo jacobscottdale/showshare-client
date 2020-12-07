@@ -52,15 +52,16 @@ class ShowDetailPage extends Component {
     const { aired_episodes, network, title, slug, overview, status, year, imdb_id, tmdb_image_path } = this.state.show;
 
     const imdbLink = `https://www.imdb.com/title/${imdb_id}/`;
-    const posterLink = `https://image.tmdb.org/t/p/w185${tmdb_image_path}`;
+    const showPoster = (tmdb_image_path !== 'false')
+      ? <img className='show_poster' src={`https://image.tmdb.org/t/p/w185${tmdb_image_path}`} alt={slug + '-poster'} />
+      : null;
 
     return (
       <>
         <NavBar history={this.props.history} />
         <section className='Show_Detail_Page'>
           <div className='poster_container'>
-            <img className='show_poster' src={posterLink} alt={slug + '-poster'} />
-
+            {showPoster}
             <div className='watch_show_buttons'>
               <AddButton
                 watch_status={this.state.watch_status}
