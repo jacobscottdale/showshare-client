@@ -49,7 +49,7 @@ class ShowDetailPage extends Component {
 
   render() {
     // trakt_id, slug
-    const { trakt_id, aired_episodes, network, title, slug, overview, status, year, imdb_id, tmdb_image_path } = this.state.show;
+    const { trakt_id, aired_episodes, network, title, slug, overview, status, year, imdb_id, tmdb_image_path, watch_status } = this.state.show;
     console.log(tmdb_image_path)
     const imdbLink = `https://www.imdb.com/title/${imdb_id}/`;
     const showPoster = (tmdb_image_path !== 'false')
