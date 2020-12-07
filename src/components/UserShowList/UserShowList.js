@@ -8,16 +8,14 @@ class UserShowList extends Component {
   static contextType = UserContext;
 
   render() {
-
-  console.log(this.context)
     const watchedShows = this.context.userShows.map(show =>
       (show.watch_status === 'watched')
         ? (
           <li key={show.trakt_id}>
             <UserShowItem show={show} updateState={this.props.updateState} />
           </li>)
-        : null
-    ).filter(show => show);
+        : null)
+        .filter(show => show);
 
 
     const unwatchedShows = this.context.userShows.map(show =>

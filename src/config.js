@@ -1,4 +1,4 @@
 export default {
-  API_ENDPOINT: process.env.API_ENDPOINT || 'https://serene-spire-74345.herokuapp.com/api',
+  API_ENDPOINT: process.env.API_ENDPOINT || 'http://localhost:8000/api',
   TOKEN_KEY: 'showshare-client-auth-token'
 }

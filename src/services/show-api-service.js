@@ -47,7 +47,7 @@ const ShowApiService = {
           throw new Error('Fetch user shows unsuccessful');
         return res.json();
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log('getUserShows not working', err));
   },
 
   addShowToList(trakt_id, new_watch_status, updateState) {
@@ -63,10 +63,14 @@ const ShowApiService = {
       })
     })
       .then(res => {
-        if (!res.ok)
+        if (!res.ok) {
+          console.log(res)
           throw new Error('Adding show to list failed');
-        return res.json().then(response => updateState(TokenService.userOnToken()));
+        } else
+          
+        return res.json();
       })
+      .then(response => updateState(TokenService.userOnToken()))
       .catch(err => console.log(err));
   },
 

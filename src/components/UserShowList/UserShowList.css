@@ -1,5 +1,6 @@
 .TVShow_list ul {
   display: flex;
+  min-height: 405px;
   flex-wrap: wrap;
   padding: 0;
 }

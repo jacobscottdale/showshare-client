@@ -39,7 +39,6 @@ class ShowDetailPage extends Component {
             watch_status: ''
           });
         }
-
       });
   };
 
@@ -49,13 +48,11 @@ class ShowDetailPage extends Component {
 
   render() {
     // trakt_id, slug
-    const { trakt_id, aired_episodes, network, title, slug, overview, status, year, imdb_id, tmdb_image_path, watch_status } = this.state.show;
-    console.log(tmdb_image_path)
+    const { trakt_id, aired_episodes, network, title, slug, overview, status, year, imdb_id, tmdb_image_path } = this.state.show;
     const imdbLink = `https://www.imdb.com/title/${imdb_id}/`;
     const showPoster = (tmdb_image_path !== 'false')
       ? <img className='show_poster' src={`https://image.tmdb.org/t/p/w185${tmdb_image_path}`} alt={slug + '-poster'} />
       : null;
-      console.log(showPoster)
 
     return (
       <>
@@ -65,7 +62,7 @@ class ShowDetailPage extends Component {
             {showPoster}
             <div className='watch_show_buttons'>
               <AddButton
-                watch_status={watch_status}
+                watch_status={this.state.watch_status}
                 trakt_id={trakt_id}
                 updateState={this.updateShowState}
               />
@@ -73,7 +70,7 @@ class ShowDetailPage extends Component {
           </div>
           <div className='Show_Detail'>
             <div className='title_container'>
-              <h3>{title} <span class='year'>({year})</span></h3>
+              <h3>{title} <span className='year'>({year})</span></h3>
 
             </div>
 

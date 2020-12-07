@@ -4,8 +4,14 @@ html {
 }
 
 body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   margin-top: 90px;
   padding: 10px 20px;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 section a:visited {

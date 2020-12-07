@@ -13,8 +13,13 @@ img.show_poster {
   border-radius: 2px;
 }
 
+.poster_container {
+  min-height: 276px;
+}
+
 .show_title {
  font-size: 12px;
+ min-height: 41px;
 }
 
 .show_buttons {
