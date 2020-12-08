@@ -46,20 +46,28 @@ class ShowDetailPage extends Component {
     this.updateShowState();
   }
 
+  renderPoster() {
+    const { tmdb_image_path, slug } = this.state.show;
+    if (tmdb_image_path === 'false' || !tmdb_image_path) {
+      return null;
+    } else {
+      return (
+        <img className='show_poster' src={`https://image.tmdb.org/t/p/w185${tmdb_image_path}`} alt={slug + '-poster'} />
+      );
+    }
+  }
+
   render() {
     // trakt_id, slug
-    const { trakt_id, aired_episodes, network, title, slug, overview, status, year, imdb_id, tmdb_image_path } = this.state.show;
+    const { trakt_id, aired_episodes, network, title, overview, status, year, imdb_id } = this.state.show;
     const imdbLink = `https://www.imdb.com/title/${imdb_id}/`;
-    const showPoster = (tmdb_image_path !== 'false' || tmdb_image_path)
-      ? <img className='show_poster' src={`https://image.tmdb.org/t/p/w185${tmdb_image_path}`} alt={slug + '-poster'} />
-      : null;
 
     return (
       <>
         <NavBar history={this.props.history} />
         <section className='Show_Detail_Page'>
           <div className='poster_container'>
-            {showPoster}
+            {this.renderPoster()}
             <div className='watch_show_buttons'>
               <AddButton
                 watch_status={this.state.watch_status}
