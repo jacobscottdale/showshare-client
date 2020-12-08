@@ -3,7 +3,7 @@ import TokenService from 'services/token-service';
 
 const ShowApiService = {
   searchShows(searchTerm) {
-    return fetch(`${config.API_ENDPOINT}/show/search/${searchTerm}`, {
+    return fetch(`${config.REACT_APP_API_ENDPOINT}/show/search/${searchTerm}`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json'
@@ -18,7 +18,7 @@ const ShowApiService = {
   },
 
   getShowDetails(trakt_id) {
-    return fetch(`${config.API_ENDPOINT}/show/${trakt_id}`, {
+    return fetch(`${config.REACT_APP_API_ENDPOINT}/show/${trakt_id}`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json'
@@ -33,7 +33,7 @@ const ShowApiService = {
   },
 
   getUserShows() {
-    return fetch(`${config.API_ENDPOINT}/lists`, {
+    return fetch(`${config.REACT_APP_API_ENDPOINT}/lists`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -51,7 +51,7 @@ const ShowApiService = {
   },
 
   addShowToList(trakt_id, new_watch_status, updateState) {
-    return fetch(`${config.API_ENDPOINT}/lists/`, {
+    return fetch(`${config.REACT_APP_API_ENDPOINT}/lists/`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -75,7 +75,7 @@ const ShowApiService = {
   },
 
   removeShowFromList(trakt_id, updateState) {
-    return fetch(`${config.API_ENDPOINT}/lists/`, {
+    return fetch(`${config.REACT_APP_API_ENDPOINT}/lists/`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',
@@ -94,7 +94,7 @@ const ShowApiService = {
   },
 
   updateWatchStatus(trakt_id, new_watch_status, updateState) {
-    return fetch(`${config.API_ENDPOINT}/lists/`, {
+    return fetch(`${config.REACT_APP_API_ENDPOINT}/lists/`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json',

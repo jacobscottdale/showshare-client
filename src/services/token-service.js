@@ -3,15 +3,15 @@ import jwt from 'jsonwebtoken';
 
 const TokenService = {
   saveAuthToken(token) {
-    window.localStorage.setItem(config.TOKEN_KEY, token);
+    window.localStorage.setItem(config.REACT_APP_TOKEN_KEY, token);
   },
 
   getAuthToken() {
-    return window.localStorage.getItem(config.TOKEN_KEY);
+    return window.localStorage.getItem(config.REACT_APP_TOKEN_KEY);
   },
 
   clearAuthToken() {
-    window.localStorage.removeItem(config.TOKEN_KEY);
+    window.localStorage.removeItem(config.REACT_APP_TOKEN_KEY);
   },
 
   hasAuthToken() {
@@ -30,7 +30,7 @@ const TokenService = {
 
   hasValidAuthToken() {
     // Need to figure out how to resolve the promise in PublicOnly/Private Routes
-    return fetch(`${config.API_ENDPOINT}/auth/verify-token`, {
+    return fetch(`${config.REACT_APP_API_ENDPOINT}/auth/verify-token`, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
