@@ -32,11 +32,11 @@ class SearchPage extends Component {
 
   render() {
     return (
-      <>
+      <section className='SearchPage'>
         <NavBar history={this.props.history} />
         <SearchBar handleSearch={this.handleSearch} />
         <ShowList shows={this.state.searchResults} searchTerm={this.state.searchTerm} updateState={this.updateUserShowsState}/>
-      </>
+      </section>
     );
   };
 }

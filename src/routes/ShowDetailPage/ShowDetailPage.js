@@ -50,7 +50,7 @@ class ShowDetailPage extends Component {
     // trakt_id, slug
     const { trakt_id, aired_episodes, network, title, slug, overview, status, year, imdb_id, tmdb_image_path } = this.state.show;
     const imdbLink = `https://www.imdb.com/title/${imdb_id}/`;
-    const showPoster = (tmdb_image_path !== 'false')
+    const showPoster = (tmdb_image_path !== 'false' || tmdb_image_path)
       ? <img className='show_poster' src={`https://image.tmdb.org/t/p/w185${tmdb_image_path}`} alt={slug + '-poster'} />
       : null;
 
