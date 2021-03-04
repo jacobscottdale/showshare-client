@@ -2,18 +2,23 @@ import React, { Component } from 'react';
 import AuthApiService from 'services/auth-api-service';
 import TokenService from 'services/token-service';
 import { Link } from 'react-router-dom';
+import 'components/LoginForm/LoginForm.css';
 
 class LoginForm extends Component {
+  state = {
+    error: ''
+  };
+
   static defaultProps = {
     onLoginSuccess: () => { }
   };
 
   handleSubmit = e => {
     e.preventDefault();
+    this.setState({ error: '' });
     const { username, password } = e.target;
 
-    if (username.value && password.value) {
-      AuthApiService.postLogin({
+    AuthApiService.postLogin({
       username: username.value,
       password: password.value,
     })
@@ -24,15 +29,10 @@ class LoginForm extends Component {
         this.props.onLoginSuccess();
       })
       .catch(res => {
-        console.log(res.error);
+        password.value = ''
+        this.setState({ error: res.error });
       });
-    } else if (!username.value && !password.value) {
-      console.log('username and password required')
-    } else if (!username.value) {
-      console.log('username required')
-    } else if (!password.value) {
-      console.log('password required')
-    }
+
   };
 
   render() {
@@ -44,16 +44,19 @@ class LoginForm extends Component {
             id='username'
             name='username'
             type='text'
-            autoComplete='username' /><br />
+            autoComplete='username'
+            required /><br />
           <label htmlFor='password'>Password:</label>
           <input
             id='password'
             name='password'
             type='password'
-            autoComplete='current-password' /><br />
+            autoComplete='current-password'
+            required /><br />
           <button type='submit'>
             Log In
-            </button>
+          </button><br />
+          <span className='form-error'>{this.state.error}</span>
         </form>
         <p>Or make a <Link to='/register' >New Account</Link></p>
       </>

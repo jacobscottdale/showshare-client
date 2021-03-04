@@ -10,7 +10,7 @@ import PublicOnlyRoute from 'components/Utils/PublicOnlyRoute';
 import TokenService from 'services/token-service';
 import UserContext from 'UserContext';
 import ShowApiService from 'services/show-api-service';
-import MainPage from 'routes/MainPage/MainPage';
+import LandingPage from 'routes/LandingPage/LandingPage';
 
 class App extends Component {
   state = {
@@ -24,10 +24,16 @@ class App extends Component {
     });
   };
 
+  setUser = user => {
+    this.setState({
+      user: user
+    })
+  }
+
   redirectToLogin = () => {
     const { history } = this.props;
     if (history)
-      history.push('login');
+      history.push('/login');
   };
 
   componentDidMount() {
@@ -44,6 +50,7 @@ class App extends Component {
       userShows: this.state.userShows,
       storeUserShows: this.storeUserShows,
       redirectToLogin: this.redirectToLogin,
+      setUser: this.setUser,
     };
 
     return (
@@ -53,7 +60,7 @@ class App extends Component {
 
             <PublicOnlyRoute
               exact path={'/'}
-              component={MainPage}
+              component={LandingPage}
             />
 
             <Route

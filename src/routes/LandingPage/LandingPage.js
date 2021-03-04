@@ -6,7 +6,10 @@ function MainPage(props) {
   return (
     <>
       <NavBar history={props.history}/>
-      <p>Welcome to showshare!</p>
+      <section className='LandingPage'>
+        <h3>Welcome to showshare!</h3>
+        <p>Login or create an account to begin adding TV shows to your watchlist</p>
+      </section>
     </>
 
   );

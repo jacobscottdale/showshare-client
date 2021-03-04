@@ -16,6 +16,8 @@ class NavBar extends Component {
 
   handleLogout = () => {
     TokenService.clearAuthToken();
+    this.context.setUser({});
+    this.context.storeUserShows([]);
     this.context.redirectToLogin();
   };
 

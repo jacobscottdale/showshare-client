@@ -12,7 +12,7 @@ class UserShowPage extends Component {
     ShowApiService.getUserShows()
       .then(userShows => {
         if (userShows) {
-          this.context.storeUserShows(userShows)
+          this.context.storeUserShows(userShows);
         } else {
           this.context.redirectToLogin();
         }
@@ -41,7 +41,12 @@ class UserShowPage extends Component {
         <NavBar history={this.props.history} />
         <SearchBar handleSearch={this.handleSearch}></SearchBar>
         <section className='UserShowPage'>
-          <UserShowList updateState={this.updateUserShowsState} />
+          {!this.context.userShows[0]
+            ?
+            <p>Start by searching for a show to add to your watch list!</p>
+            :
+            <UserShowList updateState={this.updateUserShowsState} />
+          }
         </section>
       </>
     );
