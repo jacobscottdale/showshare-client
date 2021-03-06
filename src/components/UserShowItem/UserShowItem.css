@@ -1,5 +1,5 @@
 .UserShowPage .TVShow_item {
-  width: 185px;
+  width: 150px;
 }
 
 .TVShow_item a {
@@ -7,14 +7,14 @@
 }
 
 img.show_poster {
-  width: 185px;
-  height: 272px;
+  width: 150px;
+  height: 203px;
   object-fit: cover;
   border-radius: 2px;
 }
 
 .poster_container {
-  min-height: 276px;
+  min-height: 207px;
 }
 
 .show_title {
@@ -22,9 +22,38 @@ img.show_poster {
 }
 
 .show_buttons {
-  width: 185px;
+  width: 150px;
 }
 
 .show_buttons .watchbutton {
- width: 185px;
+ width: 150px;
+}
+
+@media screen and (min-width:800px) {
+  .UserShowPage .TVShow_item {
+    width: 185px;
+  }
+  
+  img.show_poster {
+    width: 185px;
+    height: 272px;
+    object-fit: cover;
+    border-radius: 2px;
+  }
+  
+  .poster_container {
+    min-height: 276px;
+  }
+  
+  .show_title {
+   min-height: 41px;
+  }
+  
+  .show_buttons {
+    width: 185px;
+  }
+  
+  .show_buttons .watchbutton {
+   width: 185px;
+  }
 }

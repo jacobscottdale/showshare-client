@@ -40,6 +40,7 @@ class ShowDetailPage extends Component {
           });
         }
       });
+      
   };
 
   componentDidMount() {
@@ -61,7 +62,7 @@ class ShowDetailPage extends Component {
     // trakt_id, slug
     const { trakt_id, aired_episodes, network, title, overview, status, year, imdb_id } = this.state.show;
     const imdbLink = `https://www.imdb.com/title/${imdb_id}/`;
-
+    console.log(this.state.show)
     return (
       <>
         <NavBar history={this.props.history} />

@@ -1,5 +1,5 @@
-.search_show_buttons {
-  justify-self: right;
+.search_show_buttons button {
+  float: right;
 }
 
 .search_show_buttons .watchbutton {
@@ -23,7 +23,7 @@
 .TVShow_results .TVShow_item {
   display: grid;
   grid-template-columns: auto auto auto;
-  margin: 10px auto;
+  margin: 10px 0;
   padding: 5px 10px;
   background-color: white;
   max-width: 600px;

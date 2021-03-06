@@ -1,6 +1,4 @@
 .NavBar {
-  display: flex;
-  justify-content: space-between;
   position: fixed;
   top: 0;
   left: 0;
@@ -8,8 +6,13 @@
   text-align: left;
   background-color: #2E3440;
   color: #ECEFF4;
-  height: 80px;
   margin-bottom: 10px;
+}
+
+h1 {
+  text-align: center;
+  margin: 10px 0 0 0;
+  height: 38px;
 }
 
 .NavBar a {
@@ -18,20 +21,22 @@
 
 .NavBar ul {
   display: flex;
-  justify-content: space-between;
+  margin: 10px 0;
+  padding: 0;
 }
 
-.NavBar li {
-  margin-top: 12px;
-  margin-right: 25px;
+.nav-search, .nav-button {
+  text-align: center;
+  flex: 1;
+}
+
+.nav-user-watchlist {
+  text-align: center;
+  flex: 2;
 }
 
 li {
   list-style: none;
-}
-
-h1 {
-  margin-left: 25px
 }
 
 .log_button {
@@ -42,4 +47,29 @@ h1 {
   cursor: pointer;
   font-family: arial, sans-serif;
   font-size: 16px;
+}
+
+@media screen and (min-width:800px) {
+  h1 {
+    text-align: left;
+    float: left;
+    margin-top: 22px;
+  }
+  
+  .title-container {
+    margin-left: 25px;
+  }
+
+  nav {
+    margin-top: 21px;
+    float: right;
+    width: 400px;
+  }
+
+  .NavBar {
+
+    height: 80px;
+  }
+
+  
 }

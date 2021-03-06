@@ -2,3 +2,68 @@
   font-size: 12px;
 }
 
+.form-error {
+  font-size: 12px;
+  color: red;
+}
+
+.RegistrationForm button {
+  display: block;
+  margin: 0 auto;
+  padding: 5px 10px;
+}
+
+.RegistrationForm input {
+  display: block;
+  box-sizing: border-box;
+  width: 220px;
+  padding: 5px;
+  margin: 0 auto 10px auto;
+  text-align: center;
+}
+
+.RegistrationForm label {
+  display: block;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.RegistrationPage p {
+  text-align: center;
+}
+
+.RegistrationPage a {
+  text-decoration: underline;
+}
+
+@media screen and (min-width:800px) {
+  
+  .RegistrationForm button {
+    display: block;
+    margin: 0;
+    padding: 5px 10px;
+  }
+  
+  .RegistrationForm input {
+    display: inline;
+    box-sizing: border-box;
+    padding: 5px;
+    margin: 10px 0;
+    text-align: left;
+  }
+  
+  .RegistrationForm label {
+    display: block;
+    text-align: left;
+  }
+  
+  .RegistrationPage p {
+    text-align: left;
+  }
+  
+  .RegistrationPage a {
+    text-decoration: underline;
+  }
+
+
+}

@@ -1,15 +1,15 @@
-.RegistrationPage {
+.LoginPage {
   padding: 10px;
   border-radius: 10px;
 }
 
-.RegistrationPage h2 {
+.LoginPage h2 {
   text-align: center;
 }
 
 @media screen and (min-width:800px) {
 
-  .RegistrationPage h2 {
+  .LoginPage h2 {
     text-align: left;
   }
   

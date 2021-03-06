@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from 'components/NavBar/NavBar';
 import RegistrationForm from 'components/RegistrationForm/RegistrationForm';
+import 'routes/RegistrationPage/RegistrationPage.css'
 
 class RegistrationPage extends Component {
   static defaultProps = {
@@ -19,7 +20,7 @@ class RegistrationPage extends Component {
       <>
         <NavBar history={this.props.history} />
         <section className='RegistrationPage'>
-          <h2>Register</h2>
+          <h2>Register a New Account</h2>
           <RegistrationForm
             onRegistrationSuccess={this.handleRegistrationSuccess}
           />

@@ -1,5 +1,6 @@
 import React from 'react';
 import ShowItem from 'components/ShowItem/ShowItem';
+import 'components/ShowList/ShowList.css'
 
 function ShowList(props) {
   const shows = props.shows.map(show =>

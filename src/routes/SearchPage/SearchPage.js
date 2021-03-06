@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import SearchBar from 'components/SearchBar/SearchBar.js';
 import ShowList from 'components/ShowList/ShowList.js';
 import NavBar from 'components/NavBar/NavBar';
-import 'components/SearchBar/SearchBar.css';
 import ShowApiService from 'services/show-api-service';
 import UserContext from 'UserContext';
 
@@ -27,7 +26,8 @@ class SearchPage extends Component {
 
   handleSearch = searchTerm => {
     ShowApiService.searchShows(searchTerm)
-      .then(searchResults => this.setState({ searchResults, searchTerm }));
+      .then(searchResults => this.setState({ searchResults, searchTerm }))
+      
   };
 
   render() {
