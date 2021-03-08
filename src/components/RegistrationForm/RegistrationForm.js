@@ -6,7 +6,10 @@ import 'components/RegistrationForm/RegistrationForm.css';
 
 class RegistrationForm extends Component {
   state = {
-    error: ''
+    error: {
+      field: '',
+      message: ''
+    }
   };
 
   static defaultProps = {
@@ -15,7 +18,12 @@ class RegistrationForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.setState({ error: '' });
+    this.setState({
+      error: {
+        field: '',
+        message: ''
+      }
+    });
     const { first_name, last_name, username, password } = e.target;
 
     AuthApiService.postUser({
@@ -39,6 +47,7 @@ class RegistrationForm extends Component {
   };
 
   render() {
+    // Form uses HTML validation as well as server-based validation
     return (
       <>
         <form className='RegistrationForm' onSubmit={this.handleSubmit}>
@@ -48,21 +57,33 @@ class RegistrationForm extends Component {
             name='first_name'
             type='text'
             autoComplete='given-name'
-            required /><br />
+            required
+          />
+          <div className='form-error'>
+            {this.state.error.field === 'first_name' ? 'Missing First Name' : null}
+          </div>
           <label htmlFor='last_name'>Last Name:</label>
           <input
             id='last_name'
             name='last_name'
             type='text'
             autoComplete='family-name'
-            required /><br />
+            required
+          />
+          <div className='form-error'>
+            {this.state.error.field === 'last_name' ? 'Missing Last Name' : null}
+          </div>
           <label htmlFor='username'>Username:</label>
           <input
             id='username'
             name='username'
             type='text'
             autoComplete='off'
-            required /><span className='form-error'>{this.state.error}</span><br />
+            required
+          />
+          <div className='form-error'>
+            {this.state.error.field === 'username' ? this.state.error.message : null}
+          </div>
           <label htmlFor='password'>Password:</label>
           <input
             id='password'
@@ -71,10 +92,14 @@ class RegistrationForm extends Component {
             autoComplete='off'
             pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
             title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-            required /><br />
+            required
+          />
+          <div className='form-error'>
+            {this.state.error.field === 'password' ? this.state.error.message : null}
+          </div>
           <button type='submit'>
             Register
-            </button>
+          </button>
         </form>
         <p>Or log in to <Link to='/login'>An Existing Account</Link></p>
       </>

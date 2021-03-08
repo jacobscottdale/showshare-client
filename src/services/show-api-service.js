@@ -2,6 +2,7 @@ import config from 'config';
 import TokenService from 'services/token-service';
 
 const ShowApiService = {
+  // Client gets search results from Showshare API which get's the results from Trakt API
   searchShows(searchTerm) {
     return fetch(`${config.REACT_APP_API_ENDPOINT}/show/search/${searchTerm}`, {
       method: 'GET',
@@ -32,6 +33,7 @@ const ShowApiService = {
       .catch(err => console.log(err));
   },
 
+  // Returns all the shows the user on the AuthToken has saved in the database
   getUserShows() {
     return fetch(`${config.REACT_APP_API_ENDPOINT}/lists`, {
       method: 'GET',
@@ -50,6 +52,7 @@ const ShowApiService = {
       .catch(err => console.log('getUserShows not working', err));
   },
 
+  // Adds a show's trakt_id and user's id to database as either 'watched' or 'want'
   addShowToList(trakt_id, new_watch_status, updateState) {
     return fetch(`${config.REACT_APP_API_ENDPOINT}/lists/`, {
       method: 'POST',
@@ -74,6 +77,7 @@ const ShowApiService = {
       .catch(err => console.log(err));
   },
 
+  // Removes a show from the user's watchlist
   removeShowFromList(trakt_id, updateState) {
     return fetch(`${config.REACT_APP_API_ENDPOINT}/lists/`, {
       method: 'DELETE',
@@ -93,6 +97,7 @@ const ShowApiService = {
       .catch(err => console.log(err));
   },
 
+  // Toggles a show to either 'watch' or 'want' for user
   updateWatchStatus(trakt_id, new_watch_status, updateState) {
     return fetch(`${config.REACT_APP_API_ENDPOINT}/lists/`, {
       method: 'PATCH',

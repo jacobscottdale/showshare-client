@@ -1,5 +1,7 @@
 .Show_Detail_Page {
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .Show_Detail {
@@ -8,6 +10,16 @@
 
 .title_container {
   display: flex;
+  justify-content: center;
+}
+
+.Show_Detail_Page .poster_container {
+  width: 185px;
+}
+
+.Show_Detail_Page img {
+  width: 185px;
+  height: auto;
 }
 
 .watch_show_buttons .watchbutton {
@@ -16,4 +28,16 @@
 
 .watch_show_buttons {
   width: 185px;
+}
+
+@media screen and (min-width:800px) {
+  .Show_Detail_Page {
+    flex-direction: row;
+  }
+  
+  .title_container {
+    display: flex;
+    justify-content: left;
+  }
+
 }

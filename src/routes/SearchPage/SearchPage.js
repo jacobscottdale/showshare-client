@@ -5,6 +5,8 @@ import NavBar from 'components/NavBar/NavBar';
 import ShowApiService from 'services/show-api-service';
 import UserContext from 'UserContext';
 
+// Logged in users can add shows from directly from the SearchPage view to their watchlists
+
 class SearchPage extends Component {
   state = {
     searchResults: this.props.location.searchResults || [],

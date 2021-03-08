@@ -15,6 +15,7 @@ class NavBar extends Component {
   static contextType = UserContext;
 
   handleLogout = () => {
+    // clear local storage and state-- redirect to login
     TokenService.clearAuthToken();
     this.context.setUser({});
     this.context.storeUserShows([]);
@@ -60,14 +61,20 @@ class NavBar extends Component {
             <li className='nav-search'>
               <Link to='/search'>search</Link>
             </li>
-            {user.username ? (<li className='nav-user-watchlist'>
-              <Link to='/watchlist'>
-                {user.username}'s watchlist
+            {
+              // Will render a link to user's watchlist if there is a logged in user
+              user.username ? (<li className='nav-user-watchlist'>
+                <Link to='/watchlist'>
+                  {user.username}'s watchlist
                   </Link>
-            </li>) : null}
-            {user
-              ? this.renderLogoutButton(user)
-              : this.renderLoginButton(user)}
+              </li>) : null
+            }
+            {
+              // Conditionally render a log in or a log out button
+              user
+                ? this.renderLogoutButton(user)
+                : this.renderLoginButton(user)
+            }
           </ul>
         </nav>
       </header>

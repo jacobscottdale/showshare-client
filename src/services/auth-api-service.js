@@ -1,6 +1,7 @@
 import config from 'config';
 
 const AuthApiService = {
+  // Log in with existing user
   postLogin({ username, password }) {
     return fetch(`${config.REACT_APP_API_ENDPOINT}/auth/login`, {
       method: 'POST',
@@ -16,6 +17,7 @@ const AuthApiService = {
       );
   },
 
+  // Register new user
   postUser(user) {
     return fetch(`${config.REACT_APP_API_ENDPOINT}/accounts`, {
       method: 'POST',

@@ -5,6 +5,8 @@ import ShowApiService from 'services/show-api-service';
 import UserContext from 'UserContext';
 import 'routes/ShowDetailPage/ShowDetailPage.css';
 
+// ShowDetailPage shows more detailed information on one show including an overview, what network it airs on, etc.
+
 class ShowDetailPage extends Component {
   state = {
     show: {},
@@ -59,10 +61,9 @@ class ShowDetailPage extends Component {
   }
 
   render() {
-    // trakt_id, slug
     const { trakt_id, aired_episodes, network, title, overview, status, year, imdb_id } = this.state.show;
     const imdbLink = `https://www.imdb.com/title/${imdb_id}/`;
-    console.log(this.state.show)
+
     return (
       <>
         <NavBar history={this.props.history} />

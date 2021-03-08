@@ -5,6 +5,8 @@ import ShowApiService from 'services/show-api-service';
 import SearchBar from 'components/SearchBar/SearchBar';
 import UserContext from 'UserContext';
 
+// UserShowPage renders a 'watched' and 'unwatched' list based on users collected shows
+
 class UserShowPage extends Component {
   static contextType = UserContext;
 

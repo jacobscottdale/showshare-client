@@ -1,10 +1,7 @@
-.password-error {
-  font-size: 12px;
-}
-
-.form-error {
+.RegistrationForm .form-error {
   font-size: 12px;
   color: red;
+  text-align: center;
 }
 
 .RegistrationForm button {
@@ -18,14 +15,14 @@
   box-sizing: border-box;
   width: 220px;
   padding: 5px;
-  margin: 0 auto 10px auto;
+  margin: 0 auto 5px auto;
   text-align: center;
 }
 
 .RegistrationForm label {
   display: block;
   text-align: center;
-  margin-bottom: 5px;
+  margin: 5px 0;
 }
 
 .RegistrationPage p {
@@ -65,5 +62,9 @@
     text-decoration: underline;
   }
 
+  .RegistrationForm .form-error {
+    display: inline;
+    margin-left: 10px;
+  }
 
 }

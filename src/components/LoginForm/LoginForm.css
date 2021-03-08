@@ -1,6 +1,7 @@
-.form-error {
+.LogInForm .form-error {
   font-size: 12px;
   color: red;
+  text-align: center;
 }
 
 .LogInForm button {
@@ -14,14 +15,14 @@
   box-sizing: border-box;
   width: 220px;
   padding: 5px;
-  margin: 0 auto 10px auto;
+  margin: 0 auto 5px auto;
   text-align: center;
 }
 
 .LogInForm label {
   display: block;
   text-align: center;
-  margin-bottom: 5px;
+  margin: 5px 0;
 }
 
 .LoginPage p {
@@ -61,5 +62,8 @@
     text-decoration: underline;
   }
 
-
+  .LogInForm .form-error {
+    display: inline;
+    margin-left: 10px;
+  }
 }

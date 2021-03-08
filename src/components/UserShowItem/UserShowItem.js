@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import AddButton from 'components/AddButton/AddButton';
 import 'components/UserShowItem/UserShowItem.css';
 
+// A UserShowItem renders inside UserShowList and is a show that the user has collected
+
 function UserShowItem(props) {
   const { slug, title, year, watch_status, trakt_id, tmdb_image_path } = props.show;
 

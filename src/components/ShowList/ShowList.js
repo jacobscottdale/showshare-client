@@ -2,6 +2,8 @@ import React from 'react';
 import ShowItem from 'components/ShowItem/ShowItem';
 import 'components/ShowList/ShowList.css'
 
+// The shows listed in ShowList are searchResults from an api fetch
+
 function ShowList(props) {
   const shows = props.shows.map(show =>
     <li key={show.show.ids.trakt}>

@@ -24,19 +24,20 @@ class App extends Component {
     });
   };
 
-  setUser = user => {
-    this.setState({
-      user: user
-    })
-  }
-
   redirectToLogin = () => {
     const { history } = this.props;
     if (history)
       history.push('/login');
   };
 
+  setUser = user => {
+    this.setState({
+      user: user
+    })
+  }
+
   componentDidMount() {
+    // When app loads, fetch userShows and store them on state to maintain integrity with database
     ShowApiService.getUserShows()
       .then(userShows => {
         if (userShows)

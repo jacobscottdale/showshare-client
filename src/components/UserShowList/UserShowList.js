@@ -4,6 +4,8 @@ import UserShowItem from 'components/UserShowItem/UserShowItem';
 import 'components/UserShowList/UserShowList.css';
 import UserContext from 'UserContext';
 
+// All shows in UserShowList are collected by the user-- therefore they will have a watch_status of 'want' or 'watched'. 
+
 class UserShowList extends Component {
   static contextType = UserContext;
 
