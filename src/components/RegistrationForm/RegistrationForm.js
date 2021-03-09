@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import AuthApiService from 'services/auth-api-service';
 import TokenService from 'services/token-service';
+import UserContext from 'UserContext';
 import 'components/RegistrationForm/RegistrationForm.css';
 
 class RegistrationForm extends Component {
@@ -15,6 +16,8 @@ class RegistrationForm extends Component {
   static defaultProps = {
     onRegistrationSuccess: () => { }
   };
+
+  static contextType = UserContext;
 
   handleSubmit = e => {
     e.preventDefault();
@@ -39,6 +42,7 @@ class RegistrationForm extends Component {
         password.value = '';
         TokenService.saveAuthToken(res.authToken);
         this.props.onRegistrationSuccess();
+        this.context.setUser(TokenService.userOnToken());
       })
       .catch(err => {
         password.value = '';
