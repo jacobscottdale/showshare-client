@@ -2,8 +2,9 @@ import config from 'config';
 import TokenService from 'services/token-service';
 
 const ShowApiService = {
-  // Client gets search results from Showshare API which get's the results from Trakt API
+
   searchShows(searchTerm) {
+    // Client gets search results from Showshare API which get's the results from Trakt API
     return fetch(`${config.REACT_APP_API_ENDPOINT}/show/search/${searchTerm}`, {
       method: 'GET',
       headers: {
@@ -14,6 +15,9 @@ const ShowApiService = {
         if (!res.ok)
           throw new Error('Search API unsuccessful');
         return res.json();
+      })
+      .then(searchResults => {
+        return searchResults.filter(show => (show.show.ids.imdb && show.show.ids.tmdb));
       })
       .catch(err => console.log(err));
   },
@@ -33,8 +37,9 @@ const ShowApiService = {
       .catch(err => console.log(err));
   },
 
-  // Returns all the shows the user on the AuthToken has saved in the database
+
   getUserShows() {
+    // Returns all the shows the user on the AuthToken has saved in the database
     return fetch(`${config.REACT_APP_API_ENDPOINT}/lists`, {
       method: 'GET',
       headers: {
@@ -52,8 +57,9 @@ const ShowApiService = {
       .catch(err => console.log('getUserShows not working', err));
   },
 
-  // Adds a show's trakt_id and user's id to database as either 'watched' or 'want'
+
   addShowToList(trakt_id, new_watch_status, updateState) {
+    // Adds a show's trakt_id and user's id to database as either 'watched' or 'want'
     return fetch(`${config.REACT_APP_API_ENDPOINT}/lists/`, {
       method: 'POST',
       headers: {
@@ -67,18 +73,19 @@ const ShowApiService = {
     })
       .then(res => {
         if (!res.ok) {
-          console.log(res)
+          console.log(res);
           throw new Error('Adding show to list failed');
         } else
-          
-        return res.json();
+
+          return res.json();
       })
       .then(response => updateState(TokenService.userOnToken()))
       .catch(err => console.log(err));
   },
 
-  // Removes a show from the user's watchlist
+
   removeShowFromList(trakt_id, updateState) {
+    // Removes a show from the user's watchlist
     return fetch(`${config.REACT_APP_API_ENDPOINT}/lists/`, {
       method: 'DELETE',
       headers: {
@@ -97,8 +104,9 @@ const ShowApiService = {
       .catch(err => console.log(err));
   },
 
-  // Toggles a show to either 'watch' or 'want' for user
+
   updateWatchStatus(trakt_id, new_watch_status, updateState) {
+    // Toggles a show to either 'watch' or 'want' for user
     return fetch(`${config.REACT_APP_API_ENDPOINT}/lists/`, {
       method: 'PATCH',
       headers: {

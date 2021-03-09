@@ -49,7 +49,7 @@ class NavBar extends Component {
   }
 
   render() {
-    const user = TokenService.userOnToken();
+    const { user } = this.context;
 
     return (
       <header className='NavBar'>

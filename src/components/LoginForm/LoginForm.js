@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AuthApiService from 'services/auth-api-service';
 import TokenService from 'services/token-service';
 import { Link } from 'react-router-dom';
+import UserContext from 'UserContext'
 import 'components/LoginForm/LoginForm.css';
 
 class LoginForm extends Component {
@@ -12,6 +13,8 @@ class LoginForm extends Component {
   static defaultProps = {
     onLoginSuccess: () => { }
   };
+
+  static contextType = UserContext;
 
   handleSubmit = e => {
     e.preventDefault();
@@ -27,6 +30,7 @@ class LoginForm extends Component {
         password.value = '';
         TokenService.saveAuthToken(res.authToken);
         this.props.onLoginSuccess();
+        this.context.setUser(TokenService.userOnToken())
       })
       .catch(res => {
         password.value = ''
